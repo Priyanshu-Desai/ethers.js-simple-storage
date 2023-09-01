@@ -23,13 +23,12 @@ contract SimpleStorage {
     }
 
     // defining function to retrieve FavouriteNumber
-    function retrieve() public view returns(uint256){
+    function retrieve() public view returns (uint256) {
         return FavouriteNumber;
     }
 
     // defining function to add people to People array
-    function addPeople (string memory _name, uint256 _favouriteNumber) public {
+    function addPeople(string memory _name, uint256 _favouriteNumber) public {
         people.push(People(_favouriteNumber, _name));
-
     }
 }
