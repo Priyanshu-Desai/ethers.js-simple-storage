@@ -7,8 +7,12 @@ async function main() {
     gasLimit: 5000000,
   };
   const provider = new ethers.JsonRpcProvider(process.env.RPC_SERVER);
-  const wallet = new ethers.Wallet(process.env.PRIVATE_KEY, provider);
-
+  const encryptedJson = fs.readFileSync("./.encryptedKey.json", "utf-8");
+  let wallet = ethers.Wallet.fromEncryptedJsonSync(
+    encryptedJson,
+    process.env.PRIVATE_KEY_PASSWORD
+  );
+  wallet = await wallet.connect(provider);
   const abi = fs.readFileSync("./SimpleStorage_sol_SimpleStorage.abi", "utf-8");
   const bin = fs.readFileSync("./SimpleStorage_sol_SimpleStorage.bin", "utf-8");
 
