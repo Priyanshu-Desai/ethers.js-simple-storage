@@ -5,7 +5,9 @@
   "main": "deploy.js",
   "scripts": {
     "run": "npx nodemon deploy.js",
-    "compile": "npx solcjs --bin --abi --include-path node_modules/ --base-path . -o . SimpleStorage.sol"
+    "compile": "npx solcjs --bin --abi --include-path node_modules/ --base-path . -o . SimpleStorage.sol",
+    "run-prod": "node deploy.js",
+    "encrypt": "node encryptKey.js"
   },
   "author": "",
   "license": "MIT",
